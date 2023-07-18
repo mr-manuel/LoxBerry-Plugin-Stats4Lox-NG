@@ -66,7 +66,7 @@ if( $@ ) {
 
 # Temporary assign 'nextrun' time to measures
 for my $results( @{$cfg->{loxone}} ){
-	my $tag = $results->{measurementname};
+	my $tag = $results->{uuid};
 	$results->{nextrun} = defined $mem->{$tag}->{nextrun} ? $mem->{$tag}->{nextrun} : 0;
 }
 
@@ -91,7 +91,7 @@ for my $results( @{$cfg->{loxone}} ){
 		next;
 	}
 	
-	my $tag = $results->{measurementname};
+	my $tag = $results->{uuid};
 	my $now = time();
 	# Checking if interval is reached
 	if ($mem->{$tag}) {

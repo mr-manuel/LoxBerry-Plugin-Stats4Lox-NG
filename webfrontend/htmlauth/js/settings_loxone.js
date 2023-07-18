@@ -1038,9 +1038,13 @@ function validateMeasurementname( measurementname, msno, uid ) {
 		// Check if measurementname is already defined
 		var foundIndex = statsconfigLoxone.findIndex( function(obj, index) {
 			// console.log("findIndex", measurementname, selfIndex, obj["measurementname"], index);
-			if(selfIndex == index) { return false };
+			// mr-manuel: allow using same measurementname multiple times | start
+			/*if(selfIndex == index) { return false };
 			if(obj["measurementname"] != measurementname) { return false; }
-			return true;
+			return true;*/
+			console.log("ATTENTION: measurement ", measurementname, " already exists. Check was disabled.");
+			return false;
+			// mr-manuel: allow using same measurementname multiple times | end
 		})
 		
 		// console.log("Try", counter, measurementname, foundIndex);
